@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://bqw0bx2fxm67f"]
+
+[ext_resource type="Script" uid="uid://bplkg6wqfe3eh" path="res://Scripts/Maze.gd" id="1_ig7tw"]
+
+[node name="Main" type="Control" unique_id=647828642]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1477465428]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Maze" type="PanelContainer" parent="HBoxContainer" unique_id=652316242]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.92
+
+[node name="Node2D" type="Node2D" parent="HBoxContainer/Maze" unique_id=803727664 node_paths=PackedStringArray("MAZE_NODE")]
+script = ExtResource("1_ig7tw")
+MAZE_NODE = NodePath("..")
+
+[node name="Control area" type="PanelContainer" parent="HBoxContainer" unique_id=963292370]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Control area" unique_id=1749301111]
+layout_mode = 2
+
+[node name="Forward" type="Button" parent="HBoxContainer/Control area/VBoxContainer" unique_id=1577451418]
+layout_mode = 2
+text = "Forward"
+
+[node name="Right" type="Button" parent="HBoxContainer/Control area/VBoxContainer" unique_id=2101217065]
+layout_mode = 2
+text = "Right"
+
+[node name="Left" type="Button" parent="HBoxContainer/Control area/VBoxContainer" unique_id=1072193677]
+layout_mode = 2
+text = "Left"
+
+[connection signal="resized" from="HBoxContainer/Maze" to="HBoxContainer/Maze/Node2D" method="_on_maze_resized"]
